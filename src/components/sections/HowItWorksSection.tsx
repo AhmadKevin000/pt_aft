@@ -7,7 +7,7 @@ const STEPS = [
   },
   {
     step: "02",
-    title: "Proposal Customized",
+    title: "Proposal Tersuai",
     desc: "Dapatkan proposal teknis lengkap dengan desain 3D, bill of material, dan rincian harga transparan. Tidak ada biaya tersembunyi.",
     iconPath: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
   },
@@ -27,38 +27,36 @@ const STEPS = [
 
 export default function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="bg-slate-900 py-20 md:py-24">
+    <section id="how-it-works" className="bg-[#101012] py-20 md:py-24 relative">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-
-        <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-blue-500 uppercase tracking-wider mb-3">Simple Process</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-            Proses Sederhana Menuju Solusi Optimal
+        <div className="max-w-2xl mb-16">
+          <p className="font-mono text-xs text-neutral-500 uppercase tracking-widest mb-4">
+            [ Cara Kerja ]
+          </p>
+          <h2 className="text-4xl md:text-5xl font-medium tracking-tighter text-neutral-100">
+            Empat langkah menuju solusi optimal.
           </h2>
-          <p className="text-slate-400 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
-            Dari konsultasi awal hingga monitoring jangka panjang — kami dampingi setiap langkah dengan transparansi penuh.
+          <p className="text-neutral-400 mt-4 text-base leading-relaxed">
+            Dari konsultasi awal hingga monitoring jangka panjang — kami
+            dampingi setiap langkah dengan transparansi penuh.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {STEPS.map((s, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {STEPS.map((s) => (
             <div
-              key={i}
-              className="group bg-slate-800 border border-slate-700 hover:border-blue-500/40 rounded-2xl p-8 hover:-translate-y-1 transition-all duration-300 flex gap-6"
+              key={s.step}
+              className="group bg-neutral-900/50 border border-white/10 hover:border-cyan-500/40 hover:shadow-[0_0_24px_-6px_rgba(34,211,238,0.35)] rounded-2xl p-8 transition-all duration-300 flex gap-6"
             >
-              <div className="flex-shrink-0">
-                <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-900/40">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={s.iconPath} />
-                  </svg>
-                </div>
-              </div>
+              <span className="font-mono text-3xl text-neutral-700 group-hover:text-cyan-500/60 transition-colors duration-300 leading-none pt-1">
+                {s.step}
+              </span>
               <div className="flex flex-col gap-2">
-                <span className="text-xs font-bold text-blue-500 tracking-widest uppercase">Step {s.step}</span>
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-200">
+                <h3 className="text-xl font-medium tracking-tight text-neutral-100">
                   {s.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-neutral-400 text-sm leading-relaxed">{s.desc}</p>
               </div>
             </div>
           ))}
