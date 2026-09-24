@@ -1,36 +1,47 @@
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4">
+      <div className="max-w-4xl mx-auto border border-white/10 rounded-full px-5 sm:px-6 py-3 bg-[#101012]/60 backdrop-blur-xl shadow-lg shadow-black/20">
+        <div className="flex items-center justify-between">
+          <a href="#" className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg border border-white/15 bg-white/5 flex items-center justify-center">
+              <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9" />
+              </svg>
+            </div>
+            <span className="font-semibold tracking-tight text-white text-base">
+              PT AFT
+            </span>
+          </a>
+
+          <nav className="hidden md:flex items-center gap-1 text-sm font-medium text-neutral-400">
+            {[
+              { href: "#produk", label: "Produk" },
+              { href: "#benefits", label: "Keunggulan" },
+              { href: "#how-it-works", label: "Cara Kerja" },
+              { href: "#testimonials", label: "Testimoni" },
+              { href: "#faq", label: "FAQ" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="hover:text-white transition-colors duration-300 px-4 py-2 rounded-full hover:bg-white/5"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <a
+              href="#contact"
+              id="cta-navbar"
+              className="inline-flex items-center gap-2 text-sm font-medium bg-cyan-500 hover:bg-cyan-400 text-neutral-950 px-4 py-2 rounded-full transition-colors duration-300"
+            >
+              Minta Penawaran
+            </a>
           </div>
-          <span className="font-extrabold text-slate-900 tracking-tight text-lg">
-            PT <span className="text-blue-600">AFT</span>
-          </span>
         </div>
-
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
-          <a href="#produk" className="hover:text-blue-600 transition-colors">Produk</a>
-          <a href="#benefits" className="hover:text-blue-600 transition-colors">Keunggulan</a>
-          <a href="#how-it-works" className="hover:text-blue-600 transition-colors">Cara Kerja</a>
-          <a href="#testimonials" className="hover:text-blue-600 transition-colors">Testimoni</a>
-          <a href="#faq" className="hover:text-blue-600 transition-colors">FAQ</a>
-          <a href="#contact" className="hover:text-blue-600 transition-colors">Kontak</a>
-        </nav>
-
-        <a
-          href="#contact"
-          className="hidden md:inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm shadow-blue-200"
-        >
-          Get a Free Estimate
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
       </div>
     </header>
   );
